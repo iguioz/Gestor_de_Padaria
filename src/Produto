@@ -1,37 +1,41 @@
-import java.util.List;
+public class Produto {
+    private String nome;
+    private double preco;
+    private CategoriaProduto categoria;
 
-public class Pedido {
-    private Pessoa cliente;
-    private List<Produto> produtos;
-
-    public Pedido(Pessoa cliente, List<Produto> produtos) {
-        this.cliente = cliente;
-        this.produtos = produtos;
+    public Produto(String nome, double preco, CategoriaProduto categoria) {
+        this.nome = nome;
+        this.preco = preco;
+        this.categoria = categoria;
     }
 
-   
-    public Pessoa getCliente() {
-        return cliente;
+
+    public String getNome() {
+        return nome;
     }
 
-    public void setCliente(Pessoa cliente) {
-        this.cliente = cliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public double calcularTotal() {
-        return produtos.stream().mapToDouble(Produto::getPreco).sum();
+    public CategoriaProduto getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaProduto categoria) {
+        this.categoria = categoria;
     }
 
     @Override
     public String toString() {
-        return "Pedido [cliente=" + cliente + ", produtos=" + produtos + "]";
+        return "Produto [nome=" + nome + ", preco=" + preco + ", categoria=" + categoria.getDescricao() + "]";
     }
 }
